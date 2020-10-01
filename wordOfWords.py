@@ -1,20 +1,47 @@
 #Python script to make a phrase out of the letters of a word.
 import re
-word = 'iammabell'
+import random
 
-#integrations with web crawling and regexes; future feature
-test1 = 'io amo mangiare male a burgerking e le lotterie'
-test2 = 'bambi ancora non amo nemmeno ariel'
-tests = [test1, test2]
-regex = '\b[a-zA-Z]'
+feedback = False
+testList = []
+outputList = []
 
-#first letter of each words joins in a string
-#if resulting string matches, prints the word
-for i in range(len(word)):
-    firstLetter = word[i]
-    if re.match(regex, word) is not None:
-        print(word[i])
+def splitSearch(word):
+    #first letter of each words joins in a string
+    #if resulting string matches, prints the word
+    for i in range(len(word)):
+        firstLetter = word[i]
+        indexes = findIndexes(firstLetter)
+        
+        while feedback == False:
+            wordToTry = chooseBetween(indexes)
+            testList.append(wordToTry)
+            feedback = checkValidity(testList)
+
+        outputList = testList
+
+    return outputList.join()
 
 
+#find the first appearance of the letter, as capital, in the list
+#set the search's start at that and end at the next letter index
+def findIndexes(letter):
+    startIndex = wordList.find(letter)
+    endIndex = wordList.find(letter+1) - 1
+    indexes = [startIndex, endIndex]
 
-print()
+    return indexes
+
+#pick a random word in the dictionary (csv) between previously set indexes
+def chooseBetween(indexes):
+    wordIndex = random(indexes[0], indexes[1])
+    trial = 0 #pick the word at wordIndex in csv file
+    return trial
+
+def checkValidity():
+    #search on Google and the other stuff, for now it's always ok
+    return True
+
+theWord = 'iammabell' #input("Insert a word to see the magic: ")
+#word = lowerCase(word)
+thePhrase = splitSearch(theWord)
