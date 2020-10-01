@@ -13,8 +13,8 @@ def splitSearch(word):
         firstLetter = word[i]
         indexes = findIndexes(firstLetter)
         
-        testList = outputList
         while feedback == False:
+            testList = outputList
             wordToTry = chooseBetween(indexes)
             testList.append(wordToTry)
             feedback = checkValidity(testList)
@@ -26,9 +26,11 @@ def splitSearch(word):
 
 #find the first appearance of the letter, as capital, in the list
 #set the search's start at that and end at the next letter index
+#! not sure if these are the commands to get the indexes. TODO
 def findIndexes(letter):
     startIndex = wordList.find(letter)
-    endIndex = wordList.find(letter+1) - 1
+    #? find index of the next letter and subtract 1 to get last word of the letter before
+    endIndex = wordList.find(letter+1) - 1 
     indexes = [startIndex, endIndex]
 
     return indexes
