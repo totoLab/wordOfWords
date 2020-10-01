@@ -13,6 +13,7 @@ def splitSearch(word):
         firstLetter = word[i]
         indexes = findIndexes(firstLetter)
         
+        testList = outputList
         while feedback == False:
             wordToTry = chooseBetween(indexes)
             testList.append(wordToTry)
