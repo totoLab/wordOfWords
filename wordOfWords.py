@@ -37,7 +37,7 @@ def findIndexes(letter):
 
 #pick a random word in the dictionary (csv) between previously set indexes
 def chooseBetween(indexes):
-    wordIndex = random(indexes[0], indexes[1])
+    wordIndex = random.randrange(indexes[0], indexes[1])
     trial = 0 #pick the word at wordIndex in csv file
     return trial
 
