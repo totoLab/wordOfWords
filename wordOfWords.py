@@ -41,7 +41,7 @@ def chooseBetween(indexes):
     trial = 0 #pick the word at wordIndex in csv file
     return trial
 
-def checkValidity():
+def checkValidity(query):
     #search on Google and the other stuff, for now it's always ok
     return True
 
