@@ -21,21 +21,20 @@ def splitSearch(word):
             feedback = checkValidity(testList)
 
         outputList = testList
-        print("Iteration {}, list {}".format(i, outputList))
 
-    return 0#outputList.join(" ")
+    return " ".join(outputList)
 
 
-#find the first appearance of the letter, as capital, in the list
-#set the search's start at that and end at the next letter index
+#makes a list of all words that start with a letter
+#then it takes the first and last elements indexes
 #! not sure if these are the commands to get the indexes. TODO
 def findIndexes(letter):
-    listParsed = [idx for idx in wordList if idx.lower().startswith(letter)]
+    listParsed = [idx for idx in wordList if idx.lower().startswith(letter)] 
     startIndex = wordList.index(listParsed[0])
     #? find index of the next letter and subtract 1 to get last word of the letter before
     endIndex = wordList.index(listParsed[len(listParsed)-1])
     indexes = [startIndex, endIndex]
-    print(startIndex, endIndex) #debug print
+    #print(startIndex, endIndex) #debug print
     return indexes
 
 #pick a random word in the dictionary (csv) between previously set indexes
@@ -46,8 +45,13 @@ def chooseBetween(indexes):
 
 def checkValidity(query):
     #search on Google and the other stuff, for now it's always ok
-    return True
+    bul = random.random()
+    if bul < 0.5:
+        return True
+    else:
+        return False
 
-theWord = 'iammabell' #input("Insert a word to see the magic: ")
+theWord = 'iaaiaiaiaiaiaaaii' #input("Insert a word to see the magic: ")
 theWord = theWord.lower()
 thePhrase = splitSearch(theWord)
+print(thePhrase)
