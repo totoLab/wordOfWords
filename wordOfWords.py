@@ -46,5 +46,5 @@ def checkValidity():
     return True
 
 theWord = 'iammabell' #input("Insert a word to see the magic: ")
-#word = lowerCase(word)
+theWord = theWord.lower()
 thePhrase = splitSearch(theWord)
