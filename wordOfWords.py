@@ -2,7 +2,7 @@
 import re
 import random
 
-wordList = ['apple', 'amla', 'banana', 'csv', 'dt', 'exodia', 'fear', 'game', 'hotel', 'incredible', 'i', 'joker', 'key', 'low', 'my', 'no', 'oxigen', 'pill', 'quora', 'race', 'speed', 'table', 'uptown', 'why', 'xorg', 'yes', 'zen']
+wordList = ['apple', 'amla', 'banana', 'csv', 'dt', 'exodia', 'fear', 'game', 'hotel', 'incredible', 'i', 'joker', 'key', 'low', 'my', 'no', 'oxigen', 'pill', 'quora', 'race', 'speed', 'table', 'uptown', 'viagra', 'why', 'xorg', 'yes', 'zen']
 def splitSearch(word):
     testList = []
     outputList = []
@@ -15,19 +15,18 @@ def splitSearch(word):
         
         feedback = False
         while feedback == False:
-            testList = outputList
+            testList = outputList.copy()
             wordToTry = chooseBetween(indexes)
             testList.append(wordToTry)
             feedback = checkValidity(testList)
 
-        outputList = testList
+        outputList = testList.copy()
 
     return " ".join(outputList)
 
 
 #makes a list of all words that start with a letter
 #then it takes the first and last elements indexes
-#! not sure if these are the commands to get the indexes. TODO
 def findIndexes(letter):
     listParsed = [idx for idx in wordList if idx.lower().startswith(letter)] 
     startIndex = wordList.index(listParsed[0])
@@ -39,8 +38,8 @@ def findIndexes(letter):
 
 #pick a random word in the dictionary (csv) between previously set indexes
 def chooseBetween(indexes):
-    wordIndex = random.randrange(indexes[0], indexes[1])
-    trial = wordList[wordIndex] #pick the word at wordIndex in csv file - csvFile[wordIndex]
+    wordIndex = random.randint(indexes[0], indexes[1])
+    trial = wordList[wordIndex] #TODO pick the word at wordIndex in csv file - csvFile[wordIndex]
     return trial
 
 def checkValidity(query):
@@ -51,7 +50,7 @@ def checkValidity(query):
     else:
         return False
 
-theWord = 'iaaiaiaiaiaiaaaii' #input("Insert a word to see the magic: ")
+theWord = 'michiamogianni' #input("Insert a word to see the magic: ")
 theWord = theWord.lower()
 thePhrase = splitSearch(theWord)
 print(thePhrase)
