@@ -1,4 +1,4 @@
-TODO list for WordOfWords
+todo list for wordOfWords
 ===
 
 ## Tasks
