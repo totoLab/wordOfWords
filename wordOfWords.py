@@ -1,5 +1,4 @@
 #Python script to make a phrase out of the letters of a word.
-import re
 import random
 
 wordList = ['apple', 'amla', 'banana', 'csv', 'dt', 'exodia', 'fear', 'game', 'hotel', 'incredible', 'i', 'joker', 'key', 'low', 'my', 'no', 'oxigen', 'pill', 'quora', 'race', 'speed', 'table', 'uptown', 'viagra', 'why', 'xorg', 'yes', 'zen']
