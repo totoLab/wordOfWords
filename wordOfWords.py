@@ -5,8 +5,8 @@ wordList = ['apple', 'amla', 'banana', 'csv', 'dt', 'exodia', 'fear', 'game', 'h
 def splitSearch(word):
     testList = []
     outputList = []
-    #first letter of each words joins in a string
-    #if resulting string matches, prints the word
+    #search current letter as the first letter of an entry in the wordlist
+    #if the word is valid, it's appended in the output list, otherwise it's deleted from the testlist
     #TODO dictionary.sort()
     for i in range(len(word)):
         firstLetter = word[i]
@@ -32,7 +32,7 @@ def findIndexes(letter):
     #? find index of the next letter and subtract 1 to get last word of the letter before
     endIndex = wordList.index(listParsed[len(listParsed)-1])
     indexes = [startIndex, endIndex]
-    #print(startIndex, endIndex) #debug print
+    
     return indexes
 
 #pick a random word in the dictionary (csv) between previously set indexes
@@ -41,8 +41,8 @@ def chooseBetween(indexes):
     trial = wordList[wordIndex] #TODO pick the word at wordIndex in csv file - csvFile[wordIndex]
     return trial
 
-def checkValidity(query):
-    #search on Google and the other stuff, for now it's always ok
+#searches on Google and the other stuff, for now it's 50% times ok
+def checkValidity(query): #TODO make it actually search on google
     bul = random.random()
     if bul < 0.5:
         return True
